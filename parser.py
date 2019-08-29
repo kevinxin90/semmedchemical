@@ -33,7 +33,7 @@ def load_data(data_folder):
         csv_reader = csv.reader(f, delimiter=',')
         next(csv_reader)
         for _item in csv_reader:
-            if _item[4] in group_by_semmantic_dict['chemical']:
+            if _item[4] in group_by_semmantic_dict['chemical_substance']:
                 if _item[4] not in chemical_related:
                     chemical_related[_item[4]] = {'_id': _item[4][5:],
                                                   'umls': _item[4][5:]}
@@ -45,10 +45,10 @@ def load_data(data_folder):
                     if semantic_type not in chemical_related[_item[4]][pred]:
                         chemical_related[_item[4]][pred][semantic_type] = []
                     chemical_related[_item[4]][pred][semantic_type].append({'pmid': _item[1].split(';'), 'umls': _item[5][5:]})
-            elif _item[5] in group_by_semmantic_dict['chemical']:
+            elif _item[5] in group_by_semmantic_dict['chemical_substance']:
                 if _item[5] not in chemical_related:
                     chemical_related[_item[5]] = {'_id': _item[5][5:],
-                                              'umls': _item[5][5:]}
+                                                  'umls': _item[5][5:]}
                 pred = _item[0].lower() + '_reverse'
                 semantic_type = id_type_mapping[_item[4]]
                 if semantic_type not in parsed_type_list:
