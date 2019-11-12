@@ -50,7 +50,7 @@ def load_data(data_folder):
                 if _item[5] not in chemical_related:
                     chemical_related[_item[5]] = {'_id': _item[5][5:],
                                                   'umls': _item[5][5:],
-                                                  'name': id_type_mapping[_item[4]]['name']}
+                                                  'name': id_type_mapping[_item[5]]['name']}
                 pred = _item[0].lower() + '_reverse'
                 semantic_type = id_type_mapping[_item[4]]
                 if semantic_type not in parsed_type_list:
