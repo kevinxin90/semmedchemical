@@ -47,7 +47,7 @@ def load_data(data_folder):
                 assoc = _item[4] + pred + str(_item[1]) + _item[5]
                 if assoc not in unique_assocs:
                     unique_assocs.add(assoc)
-                    gene_related[_item[4]][pred][semantic_type].append({'pmid': _item[1].split(';'), 'umls': _item[5][5:]})
+                    chemical_related[_item[4]][pred][semantic_type].append({'pmid': _item[1].split(';'), 'umls': _item[5][5:]})
             elif _item[5] in group_by_semmantic_dict['chemical_substance']:
                 if _item[5] not in chemical_related:
                     chemical_related[_item[5]] = {'_id': _item[5][5:],
@@ -62,6 +62,6 @@ def load_data(data_folder):
                 assoc = _item[5] + pred + str(_item[1]) + _item[4]
                 if assoc not in unique_assocs:
                     unique_assocs.add(assoc)
-                    gene_related[_item[5]][pred][semantic_type].append({'pmid': _item[1].split(';'), 'umls': _item[4][5:]})
+                    chemical_related[_item[5]][pred][semantic_type].append({'pmid': _item[1].split(';'), 'umls': _item[4][5:]})
     for v in chemical_related.values():
         yield v
