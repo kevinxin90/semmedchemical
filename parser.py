@@ -148,7 +148,7 @@ def load_data(data_folder):
                 gene_related[sub_umls][pred][obj_umls]["pmid"] = gene_related[sub_umls
                                                                               ][pred][obj_umls]["pmid"] | set(line[1].split(';'))
     nodes_path = os.path.join(data_folder, "nodes_neo4j.csv")
-    edges_path = os.path.join(data_folder, "edges_neo4j_small.csv")
+    edges_path = os.path.join(data_folder, "edges_neo4j.csv")
     group_by_semmantic_dict = defaultdict(list)
     id_type_mapping = {}
     unique_assocs = set()
